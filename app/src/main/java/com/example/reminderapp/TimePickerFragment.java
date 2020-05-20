@@ -25,7 +25,7 @@ public class TimePickerFragment extends DialogFragment {
         int dayofWeekinMonth=c.get(Calendar.DAY_OF_WEEK_IN_MONTH);// this will return week(1st,2nd,3rd,4th)
 
 
-        //returning time picker dialog .[DateFormat.is24Hour] is checking wether the system id set to 12 hour or 24 hour format.
+        //returning time picker dialog .[DateFormat.is24Hour] is checking wether the system id set to 12 hour or 24 hour format. and return time in 24 hour format.
         return new TimePickerDialog(getActivity(),(TimePickerDialog.OnTimeSetListener) getActivity(),hour,minute, DateFormat.is24HourFormat(getActivity()));
     }
 }
