@@ -1,2 +1,2 @@
 # Time-Picker
-basic time picker to get current time and date
+sending notification on selected date and time
