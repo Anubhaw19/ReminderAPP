@@ -101,6 +101,10 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(this,AlertReceiver.class);
         PendingIntent pendingIntent= PendingIntent.getBroadcast(this,1,intent,0);/**request code for each pending intent should be different.*/
+        if(c.before(Calendar.getInstance()))//checking the selected time with current time ,if it is before or not
+        {
+            c.add(Calendar.DATE,1);//alarm will start on next day
+        }
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
     }
@@ -111,5 +115,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         PendingIntent pendingIntent= PendingIntent.getBroadcast(this,1,intent,0);/**request code for each pending intent should be different.*/
 
         alarmManager.cancel(pendingIntent);
+        text.setText("ALARM CANCELLED");
     }
 }
